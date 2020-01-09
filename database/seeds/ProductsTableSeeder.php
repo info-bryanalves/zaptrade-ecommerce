@@ -11,9 +11,8 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        //DB::table('users')->delete();
 
-        $users = [
+        $products = [
             [
                 'id' => 1,
                 'thumbnail' => '/img/product.jpg',
@@ -38,6 +37,6 @@ class ProductsTableSeeder extends Seeder
             ],
         ];
 
-        DB::table('products')->insert($users);
+        DB::table('products')->insert($products);
     }
 }
