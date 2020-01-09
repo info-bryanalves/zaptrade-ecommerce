@@ -20,7 +20,10 @@ class ProductController extends Controller
     {
         $data = [];
 
-        $data['products'] = [Products::find($id)];
+        $data['product'] = Products::where([
+            ['id', '=', $id],
+            ['status', '=', 'active']
+        ])->first();
 
         return view('pages/store/details', $data);
     }
