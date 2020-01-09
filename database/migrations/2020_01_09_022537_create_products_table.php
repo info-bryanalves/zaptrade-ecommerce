@@ -19,6 +19,14 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->decimal('price', 8, 2);
             $table->string('description');
+
+            $table->unsignedBigInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('employees');
+
+            $table->string('status');
+            $table->unsignedBigInteger('status_changed_by')->nullable();
+            $table->foreign('status_changed_by')->references('id')->on('employees');
+
             $table->timestamps();
         });
     }
