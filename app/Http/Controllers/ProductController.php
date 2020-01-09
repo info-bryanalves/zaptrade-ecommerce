@@ -11,7 +11,7 @@ class ProductController extends Controller
     {
         $data = [];
 
-        $data['products'] = Products::all();
+        $data['products'] = Products::where('status', '=', 'active')->get();
 
         return view('pages/store/index', $data);
     }
