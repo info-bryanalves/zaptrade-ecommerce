@@ -16,5 +16,12 @@ git clone https://github.com/info-bryanalves/zaptrade-ecommerce.git
 cd zaptrade-ecommerce
 composer install
 
+# A partir deste ponto, será necessário criar o banco de dados.
+# Após o banco criado, crie um arquivo .env a partir do .env.example e configure o nome, usuario e senha do banco de dados.
+# Obs.: Já deixei o arquivo .env.example igual ao que estou utilizando somente para facilidade na apresentação.
+
+# Por fim, rode as migrations e seeds
+php artisan migrate:refresh --seed
+
 # Rodar projeto
 php -S localhost:8000 -t public
