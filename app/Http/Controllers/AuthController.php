@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Employees;
+use App\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,7 +16,7 @@ class AuthController extends Controller
         $username = $request->username;
         $password = $request->password;
 
-        $employee = Employees::where([['username', $username]])->first();
+        $employee = Employee::where([['username', $username]])->first();
 
         if (!$employee) {
             $_SESSION['auth']['error'] = 'exists';
