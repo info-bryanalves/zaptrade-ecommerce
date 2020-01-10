@@ -23,4 +23,6 @@ $router->delete('/auth', 'AuthController@destroy');
 $router->get('/administrative', 'AdministrativeController@index');
 
 $router->get('/employees', 'EmployeeController@index');
+$router->delete('/employees/{id}', 'EmployeeController@destroy');
+
 $router->get('/products', 'ProductController@index');

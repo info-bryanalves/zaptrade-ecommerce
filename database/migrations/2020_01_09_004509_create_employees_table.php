@@ -19,6 +19,7 @@ class CreateEmployeesTable extends Migration
             $table->string('password');
             $table->string('occupation');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
