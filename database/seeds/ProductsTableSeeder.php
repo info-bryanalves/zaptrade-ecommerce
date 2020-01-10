@@ -38,7 +38,7 @@ class ProductsTableSeeder extends Seeder
                 'id' => 3,
                 'thumbnail' => '/img/smartphone.png',
                 'name' => 'Xiaomi Mi 9T Dual SIM 64 GB Vermelho-chama 6 GB RAM',
-                'price' => 1.839,
+                'price' => 1839.00,
                 'description' => 'Inteligente e preditivo. O sistema operacional avançado Android 9.0 Pie aprende seus hábitos para se adaptar à sua rotina e obter a máxima eficiência de seu equipamento. Seu dispositivo terá a autonomia necessária para reduzir o consumo de energia, ajustando automaticamente o brilho e gerenciando a bateria de maneira inteligente, para que você possa priorizar o uso de seus aplicativos usuais.',
                 'created_by' => 2,
                 'status' => 'active',
