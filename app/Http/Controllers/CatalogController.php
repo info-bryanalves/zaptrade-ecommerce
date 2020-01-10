@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Products;
 
-class ProductController extends Controller
+class CatalogController extends Controller
 {
 
     public function index()
@@ -12,6 +12,10 @@ class ProductController extends Controller
         $data = [];
 
         $data['products'] = Products::where('status', '=', 'active')->get();
+
+        foreach ($data['products'] as $key => $value) {
+            $data['products'][$key]['price'] = brazilianFormatMoney($value['price']);
+        }
 
         return view('pages/store/index', $data);
     }
@@ -22,7 +26,7 @@ class ProductController extends Controller
 
         $data['product'] = Products::where([
             ['id', '=', $id],
-            ['status', '=', 'active']
+            ['status', '=', 'active'],
         ])->first();
 
         return view('pages/store/details', $data);
