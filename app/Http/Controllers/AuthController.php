@@ -20,7 +20,7 @@ class AuthController extends Controller
 
         if (!$employee) {
             $_SESSION['auth']['error'] = 'exists';
-            return redirect()->route('home', ['auth' => false, 'type' => 1]);
+            return redirect()->route('home');
         }
 
         if (Hash::check($password, $employee->password)) {
