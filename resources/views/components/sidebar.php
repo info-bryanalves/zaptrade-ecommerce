@@ -7,16 +7,8 @@
     text-decoration: none;
 }
 
-@media (max-width: 600px)
-{
-  .sidebar
-   {
-    width: 30%;
-   }
-}
-
 .sidebar a {
-    color:#343a40;
+    color: #343a40;
 }
 
 .sidebar-item {
@@ -24,7 +16,27 @@
 }
 
 .sidebar-item a:hover {
-    background-color:#e3e3e3;
+    background-color: #e3e3e3;
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        width: 100%;
+        display: flex;
+    }
+
+    .sidebar-item {
+        border-bottom: 1px solid;
+        width: 33.3%;
+        text-align:center;
+        border-width:  1px 1px 1px 0px;
+        border-style: solid;
+        border-color: #000;
+    }
+
+    .sidebar-item:first-child {
+        border-left: 1px solid black;
+    }
 }
 </style>
 <div class="sidebar">
