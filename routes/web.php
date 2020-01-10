@@ -15,9 +15,12 @@ $router->get('/', [
     'as' => 'home',
     'uses' => 'CatalogController@index',
 ]);
-$router->get('/products/{id}', 'CatalogController@show');
+$router->get('/catalog/{id}', 'CatalogController@show');
 
 $router->post('/auth', 'AuthController@store');
 $router->delete('/auth', 'AuthController@destroy');
 
+$router->get('/administrative', 'AdministrativeController@index');
+
+$router->get('/products', 'AdministrativeController@index');
 $router->get('/administrative', 'AdministrativeController@index');

@@ -5,7 +5,7 @@
         <?php foreach ($products as $product) { ?>
             <div class="product-container col-12 col-md-6 col-lg-4">
                 <div class="product-item">
-                    <a href="/products/<?= $product['id'] ?>">
+                    <a href="/catalog/<?= $product['id'] ?>">
                         <div class="product-image">
                             <img src="<?= $product['thumbnail'] ?>" />
                         </div>
