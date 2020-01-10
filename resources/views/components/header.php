@@ -78,6 +78,7 @@
     border: 0;
 }
 </style>
+<?php session_start();?>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
     <a class="navbar-brand" href="/">ZAPTRADE</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
@@ -92,8 +93,21 @@
             </li>
         </ul>
         <ul class="navbar-nav navbar-right">
-            <li class="dropdown">
+            <li class="nav-item">
+                <?php if (!isset($_SESSION['auth']['username'])) {?>
                 <a href="#" class="nav-link" data-toggle="modal" data-target=".bd-example-modal-sm">Entrar</a>
+                <?php } else {?>
+                <div class="dropdown">
+                    <a href="#" class="nav-link active dropdown-toggle" data-toggle="dropdown">Bem vindo,
+                        <?=$_SESSION['auth']['username']?>!</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <form method="POST" action="/auth" id="logout-form">
+                            <a class="dropdown-item" href="#" onclick="document.getElementById('logout-form').submit()">Sair</a>
+                            <input type="hidden" name="_method" value="delete">
+                        </form>
+                    </div>
+                </div>
+                <?php }?>
             </li>
         </ul>
     </div>
@@ -109,20 +123,22 @@
                 </button>
             </div>
             <div class="modal-body">
-
                 <h5 class="modal-title text-center">Identificação</h5>
-
-                <form>
+                <?php if (!empty($_SESSION['auth']['error'])) {?>
+                <div class="alert alert-warning">
+                    <?= $_SESSION['auth']['error'] == 'exists' ? 'Usuário inexistente!' : 'Senha incorreta!'?>
+                </div>
+                <?php }?>
+                <form method="POST" action="/auth">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Usuário</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="Usuário">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Usuário">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Senha</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Senha">
                     </div>
-                    <button type="button" class="btn btn-primary w-100">Entrar</button>
+                    <button type="submit" class="btn btn-primary w-100">Entrar</button>
                 </form>
             </div>
         </div>
