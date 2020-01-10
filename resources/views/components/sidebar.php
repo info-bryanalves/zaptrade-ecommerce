@@ -32,11 +32,11 @@
         <a class="nav-link" href="/administrative">Tela inicial </a>
     </div>
     <div class="sidebar-item">
-        <a class="nav-link" href="/">Produtos </a>
+        <a class="nav-link" href="/products">Produtos </a>
     </div>
     <div class="sidebar-item">
         <?php if ($_SESSION['auth']['occupation'] == 'manager') {?>
-        <a class="nav-link" href="/administrative">Profissionais </a>
+        <a class="nav-link" href="/employees">Profissionais </a>
         <?php }?>
     </div>
 </div>

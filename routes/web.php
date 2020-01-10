@@ -22,5 +22,5 @@ $router->delete('/auth', 'AuthController@destroy');
 
 $router->get('/administrative', 'AdministrativeController@index');
 
-$router->get('/products', 'AdministrativeController@index');
-$router->get('/administrative', 'AdministrativeController@index');
+$router->get('/employees', 'EmployeeController@index');
+$router->get('/products', 'ProductController@index');
