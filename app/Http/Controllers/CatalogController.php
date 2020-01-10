@@ -17,7 +17,7 @@ class CatalogController extends Controller
             $data['products'][$key]['price'] = brazilianFormatMoney($value['price']);
         }
 
-        return view('pages/store/index', $data);
+        return view('pages/catalog/index', $data);
     }
 
     public function show($id)
@@ -29,7 +29,7 @@ class CatalogController extends Controller
             ['status', '=', 'active'],
         ])->first();
 
-        return view('pages/store/details', $data);
+        return view('pages/catalog/details', $data);
     }
     //
 }
