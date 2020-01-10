@@ -78,7 +78,11 @@
     border: 0;
 }
 </style>
-<?php session_start();?>
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
     <a class="navbar-brand" href="/">ZAPTRADE</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
@@ -89,8 +93,13 @@
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/">Home <span class="sr-only">(página atual)</span></a>
+                <a class="nav-link" href="/">Catálogo <span class="sr-only">(página atual)</span></a>
             </li>
+            <?php if (isset($_SESSION['auth']['id'])) {?>
+            <li class="nav-item">
+                <a class="nav-link" href="/administrative">Adminstrativo <span class="sr-only">(página atual)</span></a>
+            </li>
+            <?php }?>
         </ul>
         <ul class="navbar-nav navbar-right">
             <li class="nav-item">
@@ -102,7 +111,8 @@
                         <?=$_SESSION['auth']['username']?>!</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <form method="POST" action="/auth" id="logout-form">
-                            <a class="dropdown-item" href="#" onclick="document.getElementById('logout-form').submit()">Sair</a>
+                            <a class="dropdown-item" href="#"
+                                onclick="document.getElementById('logout-form').submit()">Sair</a>
                             <input type="hidden" name="_method" value="delete">
                         </form>
                     </div>
@@ -126,7 +136,7 @@
                 <h5 class="modal-title text-center">Identificação</h5>
                 <?php if (!empty($_SESSION['auth']['error'])) {?>
                 <div class="alert alert-warning">
-                    <?= $_SESSION['auth']['error'] == 'exists' ? 'Usuário inexistente!' : 'Senha incorreta!'?>
+                    <?=$_SESSION['auth']['error'] == 'exists' ? 'Usuário inexistente!' : 'Senha incorreta!'?>
                 </div>
                 <?php }?>
                 <form method="POST" action="/auth">
