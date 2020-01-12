@@ -46,7 +46,7 @@
     <div class="sidebar-item">
         <a class="nav-link" href="/products">Produtos </a>
     </div>
-    <?php if ($_SESSION['auth']['occupation'] == 'manager') {?>
+    <?php if (!empty($_SESSION['auth']) && $_SESSION['auth']['occupation'] == 'manager') {?>
     <div class="sidebar-item">
         <a class="nav-link" href="/employees">Funcionários </a>
     </div>
