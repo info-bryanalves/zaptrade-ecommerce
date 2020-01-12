@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Products;
+use App\Product;
 
 class CatalogController extends Controller
 {
@@ -11,7 +11,7 @@ class CatalogController extends Controller
     {
         $data = [];
 
-        $data['products'] = Products::where('status', '=', 'active')->get();
+        $data['products'] = Product::where('status', '=', 'active')->get();
 
         foreach ($data['products'] as $key => $value) {
             $data['products'][$key]['price'] = brazilianFormatMoney($value['price']);
@@ -24,7 +24,7 @@ class CatalogController extends Controller
     {
         $data = [];
 
-        $data['product'] = Products::where([
+        $data['product'] = Product::where([
             ['id', '=', $id],
             ['status', '=', 'active'],
         ])->first();
