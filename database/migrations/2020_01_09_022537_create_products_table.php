@@ -28,6 +28,7 @@ class CreateProductsTable extends Migration
             $table->foreign('status_changed_by')->references('id')->on('employees');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

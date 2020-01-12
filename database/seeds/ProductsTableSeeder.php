@@ -19,7 +19,7 @@ class ProductsTableSeeder extends Seeder
                 'name' => 'PC Gamer com Monitor Gamer Intel Core i7 8GB (Geforce GTX 1060 6GB) HD 1TB 500W 80 Plus',
                 'price' => 4549.00,
                 'description' => 'Um bom desempenho depende não somente de treinamento, mas também de um ótimo equipamento. Sabendo disso a Belmicro criou essa linha de PCs Games para você.
-                Experimente jogar com alta qualidade gráfica, rodando sem quebra de imagem ou lag.A combinação dos processadores Intel com a placa de vídeo Nvidia GeForce® Gtx 1060 oferece desempenho e qualidade gráfica para você subir de nível em qualquer jogo.',
+                Experimente jogar com alta qualidade gráfica, rodando sem quebra de imagem ou lag.',
                 'created_by' => 2,
                 'status' => 'active',
                 'status_changed_by' => 1
@@ -29,7 +29,7 @@ class ProductsTableSeeder extends Seeder
                 'thumbnail' => '/img/tv.png',
                 'name' => 'Smart Tv Led 32 Samsung Hd Hdmi Usb Wi-fi Lh32 4K',
                 'price' => 989.00,
-                'description' => 'Experimente cores como na vida real com a Smart TV LED Samsung Lh32. Ela possui a melhor qualidade de imagem, graças a tecnologia Ultra HD 4K, que entrega uma imagem mais realista e uma imersão em cores e contraste, redefinindo a experiência de assistir TV.',
+                'description' => 'Experimente cores como na vida real com a Smart TV LED Samsung. Ela possui a melhor qualidade de imagem, graças a tecnologia Ultra HD 4K, que entrega uma imagem mais realista e uma imersão em cores e contraste, redefinindo a experiência de assistir TV.',
                 'created_by' => 2,
                 'status' => 'pending',
                 'status_changed_by' => null
@@ -39,7 +39,7 @@ class ProductsTableSeeder extends Seeder
                 'thumbnail' => '/img/smartphone.png',
                 'name' => 'Xiaomi Mi 9T Dual SIM 64 GB Vermelho-chama 6 GB RAM',
                 'price' => 1839.00,
-                'description' => 'Inteligente e preditivo. O sistema operacional avançado Android 9.0 Pie aprende seus hábitos para se adaptar à sua rotina e obter a máxima eficiência de seu equipamento. Seu dispositivo terá a autonomia necessária para reduzir o consumo de energia, ajustando automaticamente o brilho e gerenciando a bateria de maneira inteligente, para que você possa priorizar o uso de seus aplicativos usuais.',
+                'description' => 'O Xiaomi Mi 9T é um smartphone Android avançado e abrangente em todos os pontos de vista com algumas características excelentes. Tem uma grande tela de 6.39 polegadas com uma resolução de 2340x1080 pixels.',
                 'created_by' => 2,
                 'status' => 'active',
                 'status_changed_by' => 1

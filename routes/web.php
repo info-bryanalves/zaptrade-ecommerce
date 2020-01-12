@@ -28,3 +28,4 @@ $router->post('/employees/store', 'EmployeeController@store');
 $router->delete('/employees/{id}', 'EmployeeController@destroy');
 
 $router->get('/products', 'ProductController@index');
+$router->delete('/products/{id}', 'ProductController@destroy');
