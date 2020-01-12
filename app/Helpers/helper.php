@@ -8,3 +8,10 @@ function getLoginTypeErrors()
 {
     return ['auth','password','exists'];
 }
+
+function sessionON()
+{
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+}

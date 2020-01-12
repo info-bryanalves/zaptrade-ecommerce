@@ -7,8 +7,13 @@ class AdministrativeController extends Controller
 
     public function index()
     {
+        sessionON();
 
-        return view('pages/administrative/index');
+        if ($_SESSION['auth']['occupation'] == 'manager') {
+            return view('pages/administrative/manager');
+        }
+
+        return view('pages/administrative/salesman');
     }
     //
 }
