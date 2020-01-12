@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-end" style="margin-bottom:15px">
-            <button class="btn btn-info">Cadastrar profissional</button>
+            <a href="/employees/create" class="btn btn-info" style="color:white" >Cadastrar profissional</a>
         </div>
         <table class="table">
             <thead class="thead-dark">
