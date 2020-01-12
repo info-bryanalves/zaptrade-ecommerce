@@ -76,11 +76,9 @@ if (session_status() == PHP_SESSION_NONE) {
             </div>
             <div class="modal-body">
                 <h5 class="modal-title text-center">Identificação</h5>
-                <?php if (!empty($_SESSION['auth']['error'])) {?>
-                <div class="alert alert-warning">
-                    <?=$_SESSION['auth']['error'] == 'exists' ? 'Usuário inexistente!' : 'Senha incorreta!'?>
+
+                <div class="alert alert-warning" style="display:none;margin-top:15px" id="login-error-message">
                 </div>
-                <?php }?>
                 <form method="POST" action="/auth">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Usuário</label>

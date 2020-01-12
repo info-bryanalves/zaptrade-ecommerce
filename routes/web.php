@@ -20,12 +20,18 @@ $router->get('/catalog/{id}', 'CatalogController@show');
 $router->post('/auth', 'AuthController@store');
 $router->delete('/auth', 'AuthController@destroy');
 
-$router->get('/administrative', 'AdministrativeController@index');
 
-$router->get('/employees', 'EmployeeController@index');
-$router->get('/employees/create', 'EmployeeController@create');
-$router->post('/employees/store', 'EmployeeController@store');
-$router->delete('/employees/{id}', 'EmployeeController@destroy');
+$router->group(['middleware' => 'auth'], function() use ($router) {
 
-$router->get('/products', 'ProductController@index');
-$router->delete('/products/{id}', 'ProductController@destroy');
+    $router->get('/administrative', 'AdministrativeController@index');
+
+    $router->group(['middleware' => 'permission'], function() use ($router) {
+        $router->get('/employees', 'EmployeeController@index');
+        $router->get('/employees/create', 'EmployeeController@create');
+        $router->post('/employees/store', 'EmployeeController@store');
+        $router->delete('/employees/{id}', 'EmployeeController@destroy');
+    });
+
+    $router->get('/products', 'ProductController@index');
+    $router->delete('/products/{id}', 'ProductController@destroy');
+});

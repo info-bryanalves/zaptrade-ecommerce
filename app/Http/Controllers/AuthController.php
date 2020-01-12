@@ -19,7 +19,7 @@ class AuthController extends Controller
         $employee = Employee::where([['username', $username]])->first();
 
         if (!$employee) {
-            $_SESSION['auth']['error'] = 'exists';
+            $_SESSION['error']['type'] = 'exists';
             return redirect()->route('home');
         }
 
@@ -31,7 +31,7 @@ class AuthController extends Controller
             return redirect()->route('home');
         }
 
-        $_SESSION['auth']['error'] = 'password';
+        $_SESSION['error']['type'] = 'password';
         return redirect()->route('home');
     }
 

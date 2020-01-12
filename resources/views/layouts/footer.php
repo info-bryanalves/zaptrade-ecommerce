@@ -7,11 +7,15 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
 </script>
-<?php if (isset($_SESSION['auth']['error'])) {?>
-<script>
-$('.modal').modal()
+<script src="/assets/js/index.js">
 </script>
-<?php unset($_SESSION['auth']['error']); }?>
+
+<?php if (isset($_SESSION['error'])) {?>
+    <?php if (in_array($_SESSION['error']['type'], getLoginTypeErrors())) {?>
+            <script>loginErrorMessage('<?=$_SESSION['error']['type']?>')</script>
+            <?php unset($_SESSION['error']);?>
+    <?php }?>
+<?php }?>
 </body>
 
 </html>
