@@ -28,6 +28,8 @@ class EmployeeController extends Controller
 
     public function store(Request $request)
     {
+        sessionON();
+
         $employee = new Employee;
 
         $employee->username = $request->username;
@@ -36,15 +38,20 @@ class EmployeeController extends Controller
 
         $employee->save();
 
+        $_SESSION['info']['type'] = 'employee_c';
+
         return redirect('/employees');
     }
 
     public function destroy($id)
     {
+        sessionON();
 
         $employee = Employee::find($id);
 
         $employee->delete();
+
+        $_SESSION['info']['type'] = 'employee_d';
 
         return redirect('/employees');
     }

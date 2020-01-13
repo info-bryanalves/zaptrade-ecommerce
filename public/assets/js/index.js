@@ -14,3 +14,33 @@ $('#login-modal').on('hidden.bs.modal', function (e) {
     $("#login-error-message").html()
     $("#login-error-message").hide()
 })
+
+function pageMessage(type) {
+    var messages = {
+        permission: {
+            message: "Permissão negada",
+            class: "danger"
+        },
+        employee_c: {
+            message: "Usuário cadastrado com sucesso!",
+            class: "success"
+        },
+        employee_d: {
+            message: "Usuário excluído com sucesso!",
+            class: "success"
+        },
+        product_c: {
+            message: "Produto cadastrado com sucesso!",
+            class: "success"
+        },
+        product_d: {
+            message: "Produto excluído com sucesso!",
+            class: "success"
+        }
+    }
+
+    $("#page-message").html(messages[type].message)
+
+    $("#page-message").addClass(`alert alert-${messages[type].class}`)
+    $("#page-message").show()
+}

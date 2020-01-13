@@ -7,15 +7,27 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
 </script>
-<script src="/assets/js/index.js">
+<script src="/assets/js/index.js?time=<?php time()?>">
 </script>
 
 <?php if (isset($_SESSION['error'])) {?>
     <?php if (in_array($_SESSION['error']['type'], getLoginTypeErrors())) {?>
             <script>loginErrorMessage('<?=$_SESSION['error']['type']?>')</script>
-            <?php unset($_SESSION['error']);?>
-    <?php }?>
+<?php } else { ?>
+<script>pageMessage('<?= $_SESSION['error']['type'] ?>')</script>
 <?php }?>
+<?php unset($_SESSION['error']); ?>
+<?php }?>
+
+<?php if (isset($_SESSION['info'])) {?>
+
+<script>pageMessage('<?= $_SESSION['info']['type'] ?>')</script>
+
+<?php unset($_SESSION['info']); ?>
+<?php }?>
+
+
+
 </body>
 
 </html>

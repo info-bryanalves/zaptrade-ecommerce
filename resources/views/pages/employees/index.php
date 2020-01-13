@@ -3,6 +3,7 @@
     <?php require __DIR__ . '/../../components/sidebar.php';?>
     <div class="content">
         <h1>Profissionais</h1>
+        <div style="display:none" id="page-message"></div>
         <div class="modal fade modal-delete-employee" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">

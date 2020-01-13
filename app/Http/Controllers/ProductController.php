@@ -25,10 +25,20 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
+        sessionON();
 
-        $employee = Product::find($id);
+        $product = Product::find($id);
 
-        $employee->delete();
+        if ($_SESSION['auth']['occupation'] !== 'manager' && $_SESSION['auth']['id'] !== $product->create_by) {
+
+            $_SESSION['error']['type'] = 'permission';
+
+            return redirect('/products');
+        }
+
+        $_SESSION['info']['type'] = 'product_d';
+
+        $product->delete();
 
         return redirect('/products');
     }

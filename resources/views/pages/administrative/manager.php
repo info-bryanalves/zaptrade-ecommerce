@@ -2,11 +2,8 @@
 <div class="main">
     <?php require __DIR__ . '/../../components/sidebar.php';?>
     <div class="content">
-        <h1>Produtos para aprovação</h1>
-        <?php if (isset($_SESSION['error']) && $_SESSION['error']['type'] == 'permission') {?>
-            <div class="alert alert-warning">Permissão insuficiente!</div>
-            <?php unset($_SESSION['error']);?>
-        <?php }?>
+        <h1>Controle de produtos</h1>
+        <div style="display:none" id="page-message"></div>
     </div>
 </div>
 <?php require __DIR__ . '/../../layouts/footer.php';?>

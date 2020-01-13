@@ -3,6 +3,7 @@
     <?php require __DIR__ . '/../../components/sidebar.php';?>
     <div class="content">
         <h1>Produtos</h1>
+        <div class="" style="display:none" id="page-message"></div>
         <div class="modal fade modal-delete-product" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -17,7 +18,7 @@
 
                         <form method="POST" id="form-delete-product">
                             <div class="form-group text-center" style="margin-bottom:30px">
-                            Deseja realmente excluir este produto?
+                                Deseja realmente excluir este produto?
                             </div>
 
                             <input type="hidden" name="_method" value="delete">
@@ -45,14 +46,30 @@
                 <?php foreach ($products as $product) {?>
                 <tr>
                     <th scope="row"><?=$product['id'];?></th>
-                    <td><?=$product['name'];?></td>
+                    <td><a href="/catalog/<?= $product['id'] ?>" target="_blank"> <?=$product['name'];?></a></td>
                     <td><?="R$ " . brazilianFormatMoney($product['price']);?></td>
                     <td class="text-justify"><?=$product['description'];?></td>
                     <td><?=$product['author']['username']?></td>
-                    <td class="text-center">
-                        <button onclick="$('#form-delete-product').attr('action','/products/<?=$product['id'];?>')" class="btn btn-danger" data-toggle="modal" data-target=".modal-delete-product">
-                            <img src="/img/less.png" style="width:14px;">
-                        </button>
+                    <td class="d-flex" style="flex-direction:column">
+                        <?php $disabled = '';?>
+                        <?php if ($_SESSION['auth']['occupation'] !== 'manager') {?>
+                        <?php $disabled = $product['created_by'] != $_SESSION['auth']['id'] ? 'disabled' : ''?>
+                        <?php }?>
+                        <div style="margin-bottom:15px">
+                            <button onclick="$('#form-delete-product').attr('action','/products/<?=$product['id'];?>')"
+                                class="btn btn-primary" data-toggle="modal" data-target=".modal-delete-product"
+                                <?=$disabled?> <?=$disabled == 'disabled' ? 'title="Sem permissão para edição"' : ''?>>
+                                <img src="/img/edit.png" style="width:14px;">
+                            </button>
+                        </div>
+                        <div>
+                            <button onclick="$('#form-delete-product').attr('action','/products/<?=$product['id'];?>')"
+                                class="btn btn-danger" data-toggle="modal" data-target=".modal-delete-product"
+                                <?=$disabled?>
+                                <?=$disabled == 'disabled' ? 'title="Sem permissão para exclusão"' : ''?>>
+                                <img src="/img/less.png" style="width:14px;">
+                            </button>
+                        </div>
                     </td>
                 </tr>
                 <?php }?>
