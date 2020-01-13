@@ -15,3 +15,8 @@ function sessionON()
         session_start();
     }
 }
+
+function checkContent($value, $index)
+{
+    return !empty($value[$index]) ? $value[$index] : '';
+}

@@ -36,6 +36,10 @@ function pageMessage(type) {
         product_d: {
             message: "Produto excluído com sucesso!",
             class: "success"
+        },
+        product_u: {
+            message: "Produto alterado com sucesso!",
+            class: "success"
         }
     }
 

@@ -46,7 +46,7 @@
                 <?php foreach ($products as $product) {?>
                 <tr>
                     <th scope="row"><?=$product['id'];?></th>
-                    <td><a href="/catalog/<?= $product['id'] ?>" target="_blank"> <?=$product['name'];?></a></td>
+                    <td><a href="/catalog/<?=$product['id']?>" target="_blank"> <?=$product['name'];?></a></td>
                     <td><?="R$ " . brazilianFormatMoney($product['price']);?></td>
                     <td class="text-justify"><?=$product['description'];?></td>
                     <td><?=$product['author']['username']?></td>
@@ -56,11 +56,13 @@
                         <?php $disabled = $product['created_by'] != $_SESSION['auth']['id'] ? 'disabled' : ''?>
                         <?php }?>
                         <div style="margin-bottom:15px">
-                            <button onclick="$('#form-delete-product').attr('action','/products/<?=$product['id'];?>')"
-                                class="btn btn-primary" data-toggle="modal" data-target=".modal-delete-product"
-                                <?=$disabled?> <?=$disabled == 'disabled' ? 'title="Sem permissão para edição"' : ''?>>
+                        <form action="/products/<?=$product['id']?>/edit">
+                            <button type="submit"
+                                class="btn btn-primary" <?=$disabled?>
+                                <?=$disabled == 'disabled' ? 'title="Sem permissão para edição"' : ''?>>
                                 <img src="/img/edit.png" style="width:14px;">
                             </button>
+                        </form>
                         </div>
                         <div>
                             <button onclick="$('#form-delete-product').attr('action','/products/<?=$product['id'];?>')"
