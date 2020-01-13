@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
+
 class AdministrativeController extends Controller
 {
 
@@ -10,10 +12,20 @@ class AdministrativeController extends Controller
         sessionON();
 
         if ($_SESSION['auth']['occupation'] == 'manager') {
-            return view('pages/administrative/manager');
+
+            $products = Product::where('status', 'pending')->get();
+
+            return view('pages/administrative/manager', ['products' => $products]);
         }
 
-        return view('pages/administrative/salesman');
+        $where = [
+            ['status', 'pending'],
+            ['created_by' ,$_SESSION['auth']['id']]
+        ];
+
+        $products = Product::where($where)->get();
+
+        return view('pages/administrative/salesman',  ['products' => $products]);
     }
     //
 }

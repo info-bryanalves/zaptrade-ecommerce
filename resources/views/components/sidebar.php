@@ -1,7 +1,6 @@
 <style>
 .sidebar {
     width: 20%;
-    height: 100%;
     color: white;
     background-color: #8e8e8e;
     text-decoration: none;

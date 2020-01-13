@@ -39,10 +39,12 @@ $router->group(['middleware' => 'auth'], function() use ($router) {
 
     $router->get('/products/{id}/edit', 'ProductController@edit');
     $router->put('/products/{id}', 'ProductController@update');
+    $router->delete('/products/{id}', 'ProductController@destroy');
 
     $router->get('/products/{id}/photos', 'ProductController@photos');
     $router->put('/products/{id}/photos', 'ProductController@thumbnail');
     $router->post('/products/{id}/photos', 'ProductController@updatePhotos');
 
-    $router->delete('/products/{id}', 'ProductController@destroy');
+    $router->put('/catalog/{id}', 'CatalogController@update');
+
 });

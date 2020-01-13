@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use Illuminate\Http\Request;
 
 class CatalogController extends Controller
 {
@@ -30,6 +31,21 @@ class CatalogController extends Controller
         ])->first();
 
         return view('pages/catalog/details', $data);
+    }
+
+    public function update($id, Request $request)
+    {
+        sessionON();
+
+        $product = Product::find($id);
+
+        $product->status = $request->action;
+
+        $product->save();
+
+        $_SESSION['info']['type'] = $request->action;
+
+        return redirect('/products');
     }
     //
 }

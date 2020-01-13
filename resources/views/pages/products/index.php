@@ -67,8 +67,9 @@
 
 
                         <button onclick="$('#form-delete-product').attr('action','/products/<?=$product['id'];?>')"
-                            class="btn btn-danger" data-toggle="modal" style="margin-right:10px" data-target=".modal-delete-product"
-                            <?=$disabled?> <?=$disabled == 'disabled' ? 'title="Sem permissão para exclusão"' : ''?>>
+                            class="btn btn-danger" data-toggle="modal" style="margin-right:10px"
+                            data-target=".modal-delete-product" <?=$disabled?>
+                            <?=$disabled == 'disabled' ? 'title="Sem permissão para exclusão"' : ''?>>
                             <img src="/img/less.png" style="width:14px;">
                         </button>
                         <form action="/products/<?=$product['id']?>/photos">
@@ -78,12 +79,13 @@
                                 <img src="/img/galery.png" style="width:14px;">
                             </button>
                         </form>
+                    </td>
+                </tr>
+
+                <?php }?>
+            </tbody>
+        </table>
     </div>
-    </td>
-    </tr>
-    <?php }?>
-    </tbody>
-    </table>
 </div>
 </div>
 <?php require __DIR__ . '/../../layouts/footer.php';?>

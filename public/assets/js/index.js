@@ -16,6 +16,7 @@ $('#login-modal').on('hidden.bs.modal', function (e) {
 })
 
 function pageMessage(type) {
+    debugger
     var messages = {
         permission: {
             message: "Permissão negada",
@@ -39,6 +40,14 @@ function pageMessage(type) {
         },
         product_u: {
             message: "Produto alterado com sucesso!",
+            class: "success"
+        },
+        active: {
+            message: "Produto ativado com sucesso!",
+            class: "success"
+        },
+        inactive: {
+            message: "Produto inativado com sucesso!",
             class: "success"
         }
     }
