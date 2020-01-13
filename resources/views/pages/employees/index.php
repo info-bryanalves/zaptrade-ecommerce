@@ -18,7 +18,7 @@
 
                         <form method="POST" id="form-delete-employee">
                             <div class="form-group text-center" style="margin-bottom:30px">
-                            Deseja realmente excluir este profissional?
+                                Deseja realmente excluir este profissional?
                             </div>
                             <input type="hidden" id="idfuncionario">
 
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-end" style="margin-bottom:15px">
-            <a href="/employees/create" class="btn btn-info" style="color:white" >Cadastrar profissional</a>
+            <a href="/employees/create" class="btn btn-info" style="color:white">Cadastrar profissional</a>
         </div>
         <table class="table">
             <thead class="thead-dark">
@@ -47,8 +47,13 @@
                     <th scope="row"><?=$employee['id'];?></th>
                     <td><?=$employee['username'];?></td>
                     <td><?=$employee['occupation'] == 'manager' ? 'Gerente' : 'Vendedor';?></td>
-                    <td>
-                        <button onclick="$('#form-delete-employee').attr('action','/employees/<?=$employee['id'];?>')" class="btn btn-danger" data-toggle="modal" data-target=".modal-delete-employee">
+                    <td class="text-center">
+                        <?php $disabled = $employee['id'] == $_SESSION['auth']['id'] ? 'disabled' : '';?>
+                        <button onclick="$('#form-delete-employee').attr('action','/employees/<?=$employee['id'];?>')"
+                            class="btn btn-danger" data-toggle="modal" data-target=".modal-delete-employee"
+                            title="<?=$disabled == 'disabled' ? 'Você não pode excluir a sí mesmo!' : 'Excluir profissional'?>"
+                            <?=$disabled?>
+                            >
                             <img src="/img/less.png" style="width:14px;">
                         </button>
                     </td>
