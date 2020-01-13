@@ -6,7 +6,7 @@ function brazilianFormatMoney($value)
 
 function getLoginTypeErrors()
 {
-    return ['auth','password','exists'];
+    return ['auth', 'password', 'exists'];
 }
 
 function sessionON()
@@ -19,4 +19,9 @@ function sessionON()
 function checkContent($value, $index)
 {
     return !empty($value[$index]) ? $value[$index] : '';
+}
+
+function public_path($path = '')
+{
+    return env('PUBLIC_PATH', base_path('public')) . ($path ? '/' . $path : $path);
 }

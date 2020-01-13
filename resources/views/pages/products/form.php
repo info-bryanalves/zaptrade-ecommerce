@@ -2,22 +2,32 @@
 <div class="main">
     <?php require __DIR__ . '/../../components/sidebar.php';?>
     <div class="content">
-        <h1 style="margin-bottom:15px"><?= empty($product) ? 'Cadastro de' : 'Editar'?> produto</h1>
-        <form method="POST" action="<?= empty($product) ? '/products/store' : "/products/{$product['id']}update"?>">
+        <h1 style="margin-bottom:15px"><?=empty($product) ? 'Cadastro de' : 'Editar'?> produto</h1>
+        <form method="POST" action="<?=empty($product) ? '/products/store' : "/products/{$product['id']}update"?>"
+            enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Foto</label>
+                <input type="file" class="form-control-file" name="images[]" multiple required>
+            </div>
             <div class="form-group">
                 <label>Nome</label>
-                <input type="text" class="form-control" name="name" value="<?= checkContent($product, 'name') ?>" required>
+                <input type="text" class="form-control" name="name" value="<?=checkContent($product, 'name')?>"
+                    required>
             </div>
             <div class="form-group">
                 <label>Preço</label>
-                <input type="number" step="any" class="form-control" name="price" value="<?= checkContent($product, 'price') ?>" required>
+                <input type="number" step="any" class="form-control" name="price"
+                    value="<?=checkContent($product, 'price')?>" required>
             </div>
             <div class="form-group">
                 <label>Descrição:</label>
-                <textarea class="form-control" name="description" required><?= checkContent($product, 'description') ?></textarea>
+                <textarea class="form-control" name="description"
+                    required><?=checkContent($product, 'description')?></textarea>
             </div>
+            <?php if (!empty($product)) { ?>
             <input type="hidden" name="_method" value="put">
-            <button type="submit" class="btn btn-primary"><?= empty($product) ? 'Cadastrar' : 'Editar'?></button>
+            <?php } ?>
+            <button type="submit" class="btn btn-primary"><?=empty($product) ? 'Cadastrar' : 'Editar'?></button>
         </form>
         <div class="d-flex justify-content-end" style="margin-bottom:15px">
             <a href="/products">Voltar</a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -46,9 +47,78 @@ class ProductController extends Controller
 
         $product->save();
 
+        if (!empty($request->file('images'))) {
+            foreach ($request->file('images') as $file) {
+                $picName = $file->getClientOriginalExtension();
+
+                $picName = uniqid() . '.' . $picName;
+                $path = '/uploads/products/' . $product->id . '/';
+                $destinationPath = public_path($path); // upload path
+
+                $file->move($destinationPath, $picName);
+            }
+
+            //Salva a ultima foto com thumbnail
+            $product->thumbnail = $path . $picName;
+
+            $product->save();
+
+            return redirect("/products/{$product->id}/photos");
+        }
+
         $_SESSION['info']['type'] = 'product_c';
 
+        return redirect("/administrative");
+    }
+
+    public function photos($id)
+    {
+
+        $product = Product::find($id);
+
+        $globImages = glob("{$_SERVER['DOCUMENT_ROOT']}/uploads/products/$id/*.*");
+        $images = [];
+
+        foreach ($globImages as $key => $value) {
+            $images[] = str_replace($_SERVER['DOCUMENT_ROOT'], '', $value);
+        }
+
+        return view('pages/products/photos', ['images' => $images, 'id' => $id, 'thumbnail' => $product->thumbnail]);
+    }
+
+    public function thumbnail($id, Request $request)
+    {
+        $product = Product::find($id);
+
+        $product->thumbnail = $request->thumbnail;
+
+        $product->save();
+
+        if ($product->status == 'pending') {
+
+            return redirect('/administrative');
+        }
+
         return redirect('/products');
+    }
+
+    public function updatePhotos($id, Request $request)
+    {
+        $product = Product::find($id);
+
+        if (!empty($request->file('images'))) {
+            foreach ($request->file('images') as $file) {
+                $picName = $file->getClientOriginalExtension();
+
+                $picName = uniqid() . '.' . $picName;
+                $path = '/uploads/products/' . $product->id . '/';
+                $destinationPath = public_path($path); // upload path
+
+                $file->move($destinationPath, $picName);
+            }
+
+            return redirect("/products/{$product->id}/photos");
+        }
     }
 
     public function edit($id)

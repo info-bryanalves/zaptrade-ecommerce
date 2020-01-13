@@ -35,6 +35,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Foto principal</th>
                     <th scope="col">Nome</th>
                     <th scope="col" style="width:12.5%">Preço</th>
                     <th scope="col">Descrição</th>
@@ -46,37 +47,43 @@
                 <?php foreach ($products as $product) {?>
                 <tr>
                     <th scope="row"><?=$product['id'];?></th>
+                    <th class="text-center"><img src="<?=$product['thumbnail'];?>" style="height:50px"></th>
                     <td><a href="/catalog/<?=$product['id']?>" target="_blank"> <?=$product['name'];?></a></td>
                     <td><?="R$ " . brazilianFormatMoney($product['price']);?></td>
                     <td class="text-justify"><?=$product['description'];?></td>
                     <td><?=$product['author']['username']?></td>
-                    <td class="d-flex" style="flex-direction:column">
+                    <td class="d-flex">
                         <?php $disabled = '';?>
                         <?php if ($_SESSION['auth']['occupation'] !== 'manager') {?>
                         <?php $disabled = $product['created_by'] != $_SESSION['auth']['id'] ? 'disabled' : ''?>
                         <?php }?>
-                        <div style="margin-bottom:15px">
+
                         <form action="/products/<?=$product['id']?>/edit">
-                            <button type="submit"
-                                class="btn btn-primary" <?=$disabled?>
+                            <button type="submit" class="btn btn-primary" style="margin-right:10px" <?=$disabled?>
                                 <?=$disabled == 'disabled' ? 'title="Sem permissão para edição"' : ''?>>
                                 <img src="/img/edit.png" style="width:14px;">
                             </button>
                         </form>
-                        </div>
-                        <div>
+
+
+                        <button onclick="$('#form-delete-product').attr('action','/products/<?=$product['id'];?>')"
+                            class="btn btn-danger" data-toggle="modal" style="margin-right:10px" data-target=".modal-delete-product"
+                            <?=$disabled?> <?=$disabled == 'disabled' ? 'title="Sem permissão para exclusão"' : ''?>>
+                            <img src="/img/less.png" style="width:14px;">
+                        </button>
+                        <form action="/products/<?=$product['id']?>/photos">
                             <button onclick="$('#form-delete-product').attr('action','/products/<?=$product['id'];?>')"
-                                class="btn btn-danger" data-toggle="modal" data-target=".modal-delete-product"
-                                <?=$disabled?>
-                                <?=$disabled == 'disabled' ? 'title="Sem permissão para exclusão"' : ''?>>
-                                <img src="/img/less.png" style="width:14px;">
+                                class="btn btn-info" data-toggle="modal" data-target=".modal-delete-product"
+                                <?=$disabled?> <?=$disabled == 'disabled' ? 'title="Sem permissão"' : 'title="Fotos"'?>>
+                                <img src="/img/galery.png" style="width:14px;">
                             </button>
-                        </div>
-                    </td>
-                </tr>
-                <?php }?>
-            </tbody>
-        </table>
+                        </form>
     </div>
+    </td>
+    </tr>
+    <?php }?>
+    </tbody>
+    </table>
+</div>
 </div>
 <?php require __DIR__ . '/../../layouts/footer.php';?>
