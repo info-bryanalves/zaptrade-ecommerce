@@ -4,6 +4,12 @@
 
 A aplicação será um catálogo de produtos, contendo níveis de permissão e acesso: Gerente ou Vendedor, para o gerenciamento do catálogo.
 
+### Informações
+
+A aplicação já possui 2 usuários que estão nos seeds, sendo eles:
+- login: 'admin'; senha: 'admin' **(Gerente)**
+- login: 'bryan'; senha: '1234' **(Vendedor)**
+
 ##### Tecnologia utilizada
 [Lumen 5.6](https://lumen.laravel.com/docs/5.6)
 
