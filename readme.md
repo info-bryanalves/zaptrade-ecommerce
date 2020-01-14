@@ -7,6 +7,12 @@ A aplicação será um catálogo de produtos, contendo níveis de permissão e a
 ##### Tecnologia utilizada
 [Lumen 5.6](https://lumen.laravel.com/docs/5.6)
 
+##### Requisitos
+- PHP >= 7.1.3
+- OpenSSL PHP Extension
+- PDO PHP Extension
+- Mbstring PHP Extension
+
 ##### Build Setup
 ``` bash
 # Baixar projeto
@@ -20,8 +26,9 @@ composer install
 # Após o banco criado, crie um arquivo .env a partir do .env.example e configure o nome, usuario e senha do banco de dados.
 # Obs.: Já deixei o arquivo .env.example igual ao que estou utilizando somente para facilidade na apresentação.
 
-# Por fim, rode as migrations e seeds
+# Rode as migrations e seeds
 php artisan migrate:refresh --seed
 
-# Rodar projeto
+# Por fim, execute o projeto
+# Obs.: Você pode configurar o seu apache diretamente para pasta public do projeto que irá ter o mesmo efeito;
 php -S localhost:8000 -t public
