@@ -10,7 +10,6 @@ html, body {
 
 .product-container {
   margin-top: 40px;
-  margin-bottom: 20px;
 }
 
 .product-item {
@@ -24,6 +23,8 @@ html, body {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e3e3e3;
 }
 
 .product-image img {
@@ -39,14 +40,14 @@ html, body {
 .product-name {
   margin-right: 15px;
   margin-bottom: 5px;
-  width: 65%;
+  width: 69%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
 .product-price {
-  width: 30%;
+  width: 26%;
 }
 
 .product-description {

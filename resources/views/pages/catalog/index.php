@@ -8,7 +8,6 @@
             <div class="product-item">
                 <a href="/catalog/<?= $product['id'] ?>">
                     <div class="product-image">
-
                         <img src="<?= $product['thumbnail'] ?>" />
                     </div>
                 </a>

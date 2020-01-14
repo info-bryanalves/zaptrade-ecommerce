@@ -30,6 +30,16 @@ class CatalogController extends Controller
             ['status', '=', 'active'],
         ])->first();
 
+        $globImages = glob("{$_SERVER['DOCUMENT_ROOT']}/uploads/products/$id/*.*");
+
+        $images = [];
+
+        foreach ($globImages as $key => $value) {
+            $images[] = str_replace($_SERVER['DOCUMENT_ROOT'], '', $value);
+        }
+
+        $data['images'] = $images;
+
         return view('pages/catalog/details', $data);
     }
 
