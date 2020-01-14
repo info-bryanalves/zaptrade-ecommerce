@@ -47,7 +47,7 @@ function pageMessage(type) {
             class: "success"
         },
         inactive: {
-            message: "Produto inativado com sucesso!",
+            message: "Produto recusado com sucesso!",
             class: "success"
         }
     }
