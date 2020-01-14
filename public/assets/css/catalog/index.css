@@ -1,5 +1,6 @@
 html, body {
   margin: 0;
+  background: #e8e8e8;
 }
 
 .container-fluid {
@@ -14,12 +15,11 @@ html, body {
 
 .product-item {
   height: 300px;
-  border: 1px solid black;
   padding: 15px;
+  background: #fff;
 }
 
 .product-image {
-  border: 1px solid black;
   height: 150px;
   display: flex;
   justify-content: center;

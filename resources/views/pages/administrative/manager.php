@@ -11,7 +11,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Foto principal</th>
+                    <th scope="col" style="width:9%">Foto principal</th>
                     <th scope="col">Nome</th>
                     <th scope="col" style="width:12.5%">Preço</th>
                     <th scope="col">Descrição</th>
