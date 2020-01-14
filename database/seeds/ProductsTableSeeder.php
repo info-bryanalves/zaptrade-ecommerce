@@ -41,7 +41,7 @@ class ProductsTableSeeder extends Seeder
                 'price' => 1839.00,
                 'description' => 'O Xiaomi Mi 9T é um smartphone Android avançado e abrangente em todos os pontos de vista com algumas características excelentes. Tem uma grande tela de 6.39 polegadas com uma resolução de 2340x1080 pixels.',
                 'created_by' => 2,
-                'status' => 'active',
+                'status' => 'inactive',
                 'status_changed_by' => 1
             ],
         ];

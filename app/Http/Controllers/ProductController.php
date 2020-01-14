@@ -13,7 +13,7 @@ class ProductController extends Controller
     {
         $data = [];
         $products = [];
-        $result = Product::where('status', '=', 'active')->get();
+        $result = Product::all();
 
         foreach ($result as $key => $value) {
             $products[$key] = $value->toArray();

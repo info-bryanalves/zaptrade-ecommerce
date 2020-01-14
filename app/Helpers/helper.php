@@ -25,3 +25,14 @@ function public_path($path = '')
 {
     return env('PUBLIC_PATH', base_path('public')) . ($path ? '/' . $path : $path);
 }
+
+function getStatus($value)
+{
+    $status = [
+        'active' => "<span class='text-success'>Ativo</span>",
+        'pending' => "<span class='text-warning'>Pendente</span>",
+        'inactive' => "<span class='text-danger'>Recusado</span>",
+    ];
+
+    return $status[$value];
+}

@@ -8,6 +8,19 @@
     padding: 20px 30px 20px 30px;
 }
 
+.text-success {
+    color: #1e7e34;
+}
+
+.text-warning {
+    color: #ffc107;
+}
+
+.text-danger {
+    color: #bd2130;
+}
+
+
 @media (max-width: 600px) {
     .main {
         flex-direction: column;

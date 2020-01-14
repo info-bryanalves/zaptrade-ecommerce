@@ -40,6 +40,7 @@
                     <th scope="col" style="width:12.5%">Preço</th>
                     <th scope="col">Descrição</th>
                     <th scope="col" style="width:12.5%">Autor</th>
+                    <th scope="col">Situação</th>
                     <th scope="col">&nbsp;</th>
                 </tr>
             </thead>
@@ -51,6 +52,7 @@
                     <td><a href="/catalog/<?=$product['id']?>" target="_blank"> <?=$product['name'];?></a></td>
                     <td><?="R$ " . brazilianFormatMoney($product['price']);?></td>
                     <td class="text-justify"><?=$product['description'];?></td>
+                    <td><?=getStatus($product['status'])?></td>
                     <td><?=$product['author']['username']?></td>
                     <td class="d-flex">
                         <?php $disabled = '';?>
