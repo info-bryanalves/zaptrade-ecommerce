@@ -7,10 +7,13 @@ A aplicação será um catálogo de produtos, contendo níveis de permissão e a
 ### Informações
 
 A aplicação já possui 2 usuários que estão nos seeds, sendo eles:
-- login: 'admin'; senha: 'admin' **(Gerente)**
-- login: 'bryan'; senha: '1234' **(Vendedor)**
+- login: admin; senha: admin; **(Gerente)**
+- login: bryan; senha: 1234; **(Vendedor)**
 
-E já possui 3 produtos cadastrados, sendo 2 deles ativos e um pendente de aprovação.
+E, já possui 3 produtos cadastrados, sendo 2 deles ativos e um pendente de aprovação.
+
+Obs.: Essas são informações já preenchidas são para a aplicação não vir "zerada".
+O que não impede de criar novos produtos e/ou usuários.
 
 ##### Tecnologia utilizada
 [Lumen 5.6](https://lumen.laravel.com/docs/5.6)
