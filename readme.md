@@ -10,6 +10,8 @@ A aplicação já possui 2 usuários que estão nos seeds, sendo eles:
 - login: 'admin'; senha: 'admin' **(Gerente)**
 - login: 'bryan'; senha: '1234' **(Vendedor)**
 
+E já possui 3 produtos cadastrados, sendo 2 deles ativos e um pendente de aprovação.
+
 ##### Tecnologia utilizada
 [Lumen 5.6](https://lumen.laravel.com/docs/5.6)
 
