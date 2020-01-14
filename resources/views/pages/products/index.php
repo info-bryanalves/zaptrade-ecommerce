@@ -39,8 +39,8 @@
                     <th scope="col">Nome</th>
                     <th scope="col" style="width:12.5%">Preço</th>
                     <th scope="col">Descrição</th>
-                    <th scope="col" style="width:12.5%">Autor</th>
-                    <th scope="col">Situação</th>
+                    <th scope="col" style="width:12.5%">Situação</th>
+                    <th scope="col">Autor</th>
                     <th scope="col">&nbsp;</th>
                 </tr>
             </thead>

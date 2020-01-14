@@ -143,12 +143,17 @@ class ProductController extends Controller
 
     public function update($id, Request $request)
     {
+        sessionON();
 
         $product = Product::find($id);
 
         $product->name = $request->name;
         $product->price = $request->price;
         $product->description = $request->description;
+
+        if ($_SESSION['auth']['occupation'] == 'manager') {
+            $product->status = $request->status;
+        }
 
         $product->save();
 
