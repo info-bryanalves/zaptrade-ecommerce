@@ -23,7 +23,9 @@ cd zaptrade-ecommerce
 composer install
 
 # A partir deste ponto, será necessário criar o banco de dados.
-# Após o banco criado, crie um arquivo .env a partir do .env.example e configure o nome, usuario e senha do banco de dados.
+# Após o banco criado, crie um arquivo .env a partir do .env.example que esta na raiza da aplicar.
+# Configure o nome, usuario e senha do banco de dados.
+
 # Obs.: Já deixei o arquivo .env.example igual ao que estou utilizando somente para facilidade na apresentação.
 # Está configurado da seguinte forma: usuário: "root", senha: "",e banco: "zaptrade".
 
